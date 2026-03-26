@@ -7,22 +7,22 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
       <title>Preskool - Dashboard</title>
-      <link rel="shortcut icon" href="{%static 'assets/img/favicon.png' %}">
+      <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
-      <link rel="stylesheet" href="{%static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
-      <link rel="stylesheet" href="{%static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
-      <link rel="stylesheet" href="{%static 'assets/plugins/fontawesome/css/all.min.css' %}">
-      <link rel="stylesheet" href="{%static 'assets/css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
    </head>
    <body>
       <div class="main-wrapper">
          <div class="header">
             <div class="header-left">
                <a href="index.html" class="logo">
-               <img src="{%static 'assets/img/logo.png' %}" alt="Logo">
+               <img src="{% static 'assets/img/logo.png' %}" alt="Logo">
                </a>
                <a href="index.html" class="logo logo-small">
-               <img src="{%static 'assets/img/logo-small.png' %}" alt="Logo" width="30" height="30">
+               <img src="{% static 'assets/img/logo-small.png' %}" alt="Logo" width="30" height="30">
                </a>
             </div>
             <a href="javascript:void(0);" id="toggle_btn">
@@ -40,9 +40,6 @@
             <ul class="nav user-menu">
                <li class="nav-item dropdown noti-dropdown">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                   {% comment %} {% if unread_notification_count > 0 %}
-                  <i class="far fa-bell"></i> <span class="badge badge-pill">{{unread_notification_count}}</span>
-                  {% endif %} {% endcomment %}
                   </a>
                   <div class="dropdown-menu notifications">
                      <div class="topnav-dropdown-header">
@@ -61,15 +58,14 @@
                </li>
                <li class="nav-item dropdown has-arrow">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <span class="user-img"><img class="rounded-circle" src="{%static 'assets/img/profiles/avatar-01.jpg'%}" width="31" alt="Ryan Taylor"></span>
+                  <span class="user-img"><img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-01.jpg' %}" width="31" alt="Ryan Taylor"></span>
                   </a>
                   <div class="dropdown-menu">
                      <div class="user-header">
                         <div class="avatar avatar-sm">
-                           <img src="{%static 'assets/img/profiles/avatar-01.jpg'%}" alt="User Image" class="avatar-img rounded-circle">
+                           <img src="{% static 'assets/img/profiles/avatar-01.jpg' %}" alt="User Image" class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                           {% comment %} <h6>{{user.username}}</h6> {% endcomment %}
                            <p class="text-muted mb-0">Administrator</p>
                         </div>
                      </div>
@@ -239,28 +235,20 @@
             </div>
          </div>
 
-
          {% block body %}
             
          {% endblock %}
 
       </div>
 
- 
-
-    
       <script type="text/javascript">
           document.addEventListener('DOMContentLoaded', function() {
-              // Select the notification dropdown element
               const notiDropdown = document.querySelector('.noti-dropdown');
               const clearAllBtn = document.querySelector('.clear-noti');
       
               if (notiDropdown) {
-                  // Add a click event listener to the notification dropdown
                   notiDropdown.addEventListener('click', function() {
                       const url = "";
-      
-                      // Use the Fetch API to send a POST request to mark notifications as read
                       fetch(url, {
                           method: 'POST',
                           headers: {
@@ -268,10 +256,9 @@
                               'Content-Type': 'application/x-www-form-urlencoded',
                           }
                       })
-                      .then(response => response.json())  // Parse the JSON response
+                      .then(response => response.json())
                       .then(data => {
                           if (data.status === 'success') {
-                              // Remove the badge if notifications are successfully marked as read
                               const badge = document.querySelector('.badge');
                               if (badge) {
                                   badge.remove();
@@ -279,17 +266,14 @@
                           }
                       })
                       .catch(error => {
-                          console.error('Error:', error);  // Log any errors
+                          console.error('Error:', error);
                       });
                   });
               }
       
               if (clearAllBtn) {
-                  // Add a click event listener to the "Clear All" button
                   clearAllBtn.addEventListener('click', function() {
-                      const clearUrl = "";  // Ensure this URL points to the correct view
-      
-                      // Use Fetch to send a POST request to clear all notifications
+                      const clearUrl = "";
                       fetch(clearUrl, {
                           method: 'POST',
                           headers: {
@@ -297,25 +281,22 @@
                               'Content-Type': 'application/x-www-form-urlencoded',
                           }
                       })
-                      .then(response => response.json())  // Parse the JSON response
+                      .then(response => response.json())
                       .then(data => {
                           if (data.status === 'success') {
-                              // Clear all notifications from the dropdown
                               const notificationList = document.querySelector('.notification-list');
                               if (notificationList) {
-                                  notificationList.innerHTML = '<li>No new notifications</li>';  // Optionally show a "No new notifications" message
+                                  notificationList.innerHTML = '<li>No new notifications</li>';
                               }
                           }
                       })
                       .catch(error => {
-                          console.error('Error:', error);  // Log any errors
+                          console.error('Error:', error);
                       });
                   });
               }
           });
       </script>
       
-      
   </body>
   </html>
-  

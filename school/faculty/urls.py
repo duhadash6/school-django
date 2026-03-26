@@ -4,4 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('<str:template_name>', views.dynamic_template, name='dynamic_template'),
+    path('student/', include('student.urls')),
 ]
