@@ -1,0 +1,88 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Teacher Details</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'teacher_list' %}">Teachers</a></li>
+                        <li class="breadcrumb-item active">Teacher Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="about-info">
+                            <h4>About Me</h4>
+                            <div class="media mt-3">
+                                {% if teacher.avatar %}
+                                <img src="{{ teacher.avatar.url }}" class="mr-3 rounded" width="120" style="object-fit: cover;" alt="...">
+                                {% endif %}
+                                <div class="media-body">
+                                    <ul>
+                                        <li>
+                                            <span class="title-span">Full Name : </span>
+                                            <span class="info-span">{{ teacher.first_name }} {{ teacher.last_name }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Teacher ID : </span>
+                                            <span class="info-span">{{ teacher.teacher_id }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Department : </span>
+                                            <span class="info-span">{{ teacher.department.name }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Mobile : </span>
+                                            <span class="info-span">{{ teacher.mobile_number }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Email : </span>
+                                            <span class="info-span">{{ teacher.email }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Gender : </span>
+                                            <span class="info-span">{{ teacher.gender }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="title-span">Date of Birth : </span>
+                                            <span class="info-span">{{ teacher.date_of_birth|date:"d M Y" }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <h5>Professional Information</h5>
+                                    <p><strong>Experience:</strong> {{ teacher.experience }}</p>
+                                    <p><strong>Joining Date:</strong> {{ teacher.joining_date|date:"d M Y" }}</p>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <h5>Address</h5>
+                                    <p>{{ teacher.address }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <script src="{%static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{%static 'assets/js/popper.min.js' %}"></script>
+      <script src="{%static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+      <script src="{%static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+      <script src="{%static 'assets/plugins/datatables/datatables.min.js' %}"></script>
+      <script src="{%static 'assets/js/script.js' %}"></script>
+
+{% endblock %}

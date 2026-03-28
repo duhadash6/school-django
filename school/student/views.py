@@ -4,7 +4,9 @@ from django.contrib import messages
 from .models import Student, Parent
 
 def student_list(request):
-    return render(request, 'students/students.html')
+    students = Student.objects.all()
+    context = {'student_list': students}
+    return render(request, 'students/students.html', context)
 
 def add_student(request):
     if request.method == 'POST':
@@ -69,10 +71,67 @@ def add_student(request):
     return render(request, 'students/add-student.html')
 
 def edit_student(request, student_id):
-    return render(request, 'students/edit-student.html')
+    student = Student.objects.filter(student_id=student_id).first()
+    parent = student.parent
+
+    if request.method == 'POST':
+        student.first_name = request.POST.get('first_name')
+        student.last_name = request.POST.get('last_name')
+        student.student_id = request.POST.get('student_id')
+        student.gender = request.POST.get('gender')
+        student.date_of_birth = request.POST.get('date_of_birth')
+        student.student_class = request.POST.get('student_class')
+        student.joining_date = request.POST.get('joining_date')
+        student.mobile_number = request.POST.get('mobile_number')
+        student.admission_number = request.POST.get('admission_number')
+        student.section = request.POST.get('section')
+        
+        if request.FILES.get('student_image'):
+            student.student_image = request.FILES.get('student_image')
+
+        parent.father_name = request.POST.get('father_name')
+        parent.father_occupation = request.POST.get('father_occupation')
+        parent.father_mobile = request.POST.get('father_mobile')
+        parent.father_email = request.POST.get('father_email')
+        parent.mother_name = request.POST.get('mother_name')
+        parent.mother_occupation = request.POST.get('mother_occupation')
+        parent.mother_mobile = request.POST.get('mother_mobile')
+        parent.mother_email = request.POST.get('mother_email')
+        parent.present_address = request.POST.get('present_address')
+        parent.permanent_address = request.POST.get('permanent_address')
+
+        parent.save()
+        student.save()
+
+        messages.success(request, 'Student updated Successfully')
+        return redirect('student_list')
+
+    context = {'student': student, 'parent': parent}
+    return render(request, 'students/edit-student.html', context)
 
 def view_student(request, student_id):
-    return render(request, 'students/student-details.html')
+    student = Student.objects.filter(student_id=student_id).first()
+    context = {'student': student}
+    return render(request, 'students/student-details.html', context)
 
 def delete_student(request, student_id):
+    student = Student.objects.filter(student_id=student_id).first()
+    if student and hasattr(student, 'parent'):
+        student.parent.delete()
+    messages.success(request, 'Student deleted Successfully')
     return redirect('student_list')
+
+def student_view_generic(request):
+    student = Student.objects.first()
+    if student:
+        return redirect('view_student', student_id=student.student_id)
+    return redirect('add_student')
+
+def student_edit_generic(request):
+    student = Student.objects.first()
+    if student:
+        return redirect('edit_student', student_id=student.student_id)
+    return redirect('add_student')
+
+def student_dashboard(request):
+    return render(request, 'students/student-dashboard.html')
