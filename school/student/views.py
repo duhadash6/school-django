@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
+from home_auth.decorators import role_required
 from .models import Student, Parent
 
+@role_required(['admin', 'teacher', 'student'])
 def student_list(request):
     students = Student.objects.all()
     context = {'student_list': students}
     return render(request, 'students/students.html', context)
 
+@role_required(['admin'])
 def add_student(request):
     if request.method == 'POST':
         # Récupérer les données de l'étudiant
@@ -70,6 +73,7 @@ def add_student(request):
 
     return render(request, 'students/add-student.html')
 
+@role_required(['admin'])
 def edit_student(request, student_id):
     student = Student.objects.filter(student_id=student_id).first()
     parent = student.parent
@@ -109,11 +113,13 @@ def edit_student(request, student_id):
     context = {'student': student, 'parent': parent}
     return render(request, 'students/edit-student.html', context)
 
+@role_required(['admin', 'teacher', 'student'])
 def view_student(request, student_id):
     student = Student.objects.filter(student_id=student_id).first()
     context = {'student': student}
     return render(request, 'students/student-details.html', context)
 
+@role_required(['admin'])
 def delete_student(request, student_id):
     student = Student.objects.filter(student_id=student_id).first()
     if student and hasattr(student, 'parent'):
@@ -121,17 +127,16 @@ def delete_student(request, student_id):
     messages.success(request, 'Student deleted Successfully')
     return redirect('student_list')
 
+@role_required(['admin', 'teacher', 'student'])
 def student_view_generic(request):
-    student = Student.objects.first()
-    if student:
-        return redirect('view_student', student_id=student.student_id)
-    return redirect('add_student')
+    students = Student.objects.all()
+    return render(request, 'students/select_student.html', {'students': students, 'action': 'view'})
 
+@role_required(['admin'])
 def student_edit_generic(request):
-    student = Student.objects.first()
-    if student:
-        return redirect('edit_student', student_id=student.student_id)
-    return redirect('add_student')
+    students = Student.objects.all()
+    return render(request, 'students/select_student.html', {'students': students, 'action': 'edit'})
 
+@role_required(['student'])
 def student_dashboard(request):
     return render(request, 'students/student-dashboard.html')

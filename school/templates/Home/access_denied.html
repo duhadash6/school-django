@@ -1,0 +1,31 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row align-items-center justify-content-center" style="min-height: 70vh;">
+            <div class="col-md-8 text-center">
+                <i class="fas fa-exclamation-triangle text-warning" style="font-size: 80px; margin-bottom: 20px;"></i>
+                <h2 class="display-4 font-weight-bold">Access Denied</h2>
+                <p class="lead text-muted mt-3">
+                    Oops! You don't have permission to access this page. 
+                    If you want to access this dashboard or feature, you have to log in as one of the following roles:
+                </p>
+                <div class="mt-4">
+                    {% for role in roles %}
+                        <span class="badge badge-primary p-2 mx-1" style="font-size: 16px; text-transform: capitalize;">{{ role }}</span>
+                    {% endfor %}
+                </div>
+                <div class="mt-5">
+                    <a href="javascript:history.back()" class="btn btn-secondary btn-lg mr-2">
+                        <i class="fas fa-arrow-left mr-2"></i>Go Back
+                    </a>
+                    <a href="{% url 'index' %}" class="btn btn-warning btn-lg">
+                        <i class="fas fa-home mr-2"></i>Return to my Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

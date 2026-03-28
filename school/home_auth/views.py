@@ -29,9 +29,15 @@ def signup_view(request):
         user.save()
         login(request, user)
         messages.success(request, 'Signup successful!')
-        return redirect('login') 
+        if user.is_admin:
+            return redirect('index')
+        elif user.is_teacher:
+            return redirect('teacher_dashboard')
+        elif user.is_student:
+            return redirect('student_dashboard')
+        return redirect('login')
 
-    return render(request, 'authentication/register.html')
+    return render(request, 'Home/register.html')
 
 
 def login_view(request):
@@ -45,25 +51,30 @@ def login_view(request):
             login(request, user)
             messages.success(request, 'Login successful!')
             if user.is_admin:
-                return redirect('login')
+                return redirect('index')
             elif user.is_teacher:
-                return redirect('login') 
+                return redirect('teacher_dashboard')
             elif user.is_student:
-                return redirect('login') 
+                return redirect('student_dashboard')
+            else:
+                return redirect('index')
         else:
             messages.error(request, 'Invalid credentials')
             
-    return render(request, 'authentication/login.html')
+    return render(request, 'Home/login.html')
 
 
 def logout_view(request):
+    # Consommer les anciens messages pour qu'ils ne s'empilent pas (ex: "Login successful!")
+    list(messages.get_messages(request))
+    
     logout(request)
-    messages.success(request, 'You have been logged out.')
+    messages.success(request, 'Logged out successfully. Please log in to continue.')
     return redirect('login')
 
 
 def forgot_password_view(request):
-    return render(request, 'authentication/forgot-password.html')
+    return render(request, 'Home/forgotpassword.html')
 
 def reset_password_view(request, token):
-    return render(request, 'authentication/reset_password.html', {'token': token})
+    return render(request, 'Home/resetpassword.html', {'token': token})

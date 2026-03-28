@@ -1,0 +1,58 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Select Department to {{ action|title }}</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Select Department</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row staff-grid-row">
+            {% for department in departments %}
+            <div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3 mb-4">
+                <div class="profile-widget d-flex flex-column h-100" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; position: relative;">
+                    <div class="profile-img" style="margin-bottom: 15px;">
+                        <span class="avatar avatar-circle" style="width: 80px; height: 80px; border-radius: 50%; background-color: #18aefa; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 30px;">
+                            <i class="fas fa-building"></i>
+                        </span>
+                    </div>
+                    <div class="dropdown profile-action" style="position: absolute; right: 10px; top: 10px;">
+                        <a href="javascript:void(0);" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v text-muted"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{% url 'view_department' department.department_id %}"><i class="fas fa-eye m-r-5"></i> View</a>
+                            <a class="dropdown-item" href="{% url 'edit_department' department.department_id %}"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a>
+                        </div>
+                    </div>
+                    <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="{% if action == 'edit' %}{% url 'edit_department' department.department_id %}{% else %}{% url 'view_department' department.department_id %}{% endif %}">{{ department.name }}</a></h4>
+                    <div class="small text-muted mb-2">HOD: {{ department.head_of_department }}</div>
+                    <div class="small text-muted mb-3">Started: {{ department.department_start_date|date:"Y" }}</div>
+                    <a href="{% if action == 'edit' %}{% url 'edit_department' department.department_id %}{% else %}{% url 'view_department' department.department_id %}{% endif %}" class="btn {% if action == 'edit' %}btn-success{% else %}btn-primary{% endif %} btn-sm w-100 mt-auto" style="border-radius: 5px;">
+                        {% if action == 'edit' %}<i class="fas fa-edit mr-1"></i> Edit Dept{% else %}<i class="fas fa-building mr-1"></i> View Dept{% endif %}
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <h5>No departments found in the database.</h5>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <p>Copyright © 2024 Preskool.</p>
+    </footer>
+</div>
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+{% endblock %}

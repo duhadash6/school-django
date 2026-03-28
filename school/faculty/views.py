@@ -1,18 +1,33 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from home_auth.decorators import role_required
 from django.http import Http404
 from django.template import TemplateDoesNotExist
 from .models import Teacher, Department
 
-def index(request):
+@role_required(['admin'])
+def admin_dashboard(request):
     return render(request, 'Home/index.html')
 
+@role_required(['admin', 'teacher', 'student'])
+def index(request):
+    if getattr(request.user, 'is_admin', False):
+        return redirect('admin_dashboard')
+    elif getattr(request.user, 'is_teacher', False):
+        return redirect('teacher_dashboard')
+    elif getattr(request.user, 'is_student', False):
+        return redirect('student_dashboard')
+    return redirect('login')
+
+@role_required(['admin', 'teacher', 'student'])
 def inbox(request):
     return render(request, 'inbox.html')
 
+@role_required(['admin', 'teacher', 'student'])
 def profile(request):
     return render(request, 'profile.html')
 
+@role_required(['admin', 'teacher', 'student'])
 def dynamic_template(request, template_name):
     # This allows rendering any HTML template requested directly, useful for migration
     try:
@@ -30,11 +45,13 @@ def dynamic_template(request, template_name):
                 raise Http404(f"Template {template_name} does not exist. Please make sure the file is in your templates folder.")
 
 # --- Departments ---
+@role_required(['admin', 'teacher', 'student'])
 def department_list(request):
     departments = Department.objects.all()
     context = {'department_list': departments}
     return render(request, 'departments/departments.html', context)
 
+@role_required(['admin'])
 def add_department(request):
     if request.method == 'POST':
         department_id = request.POST.get('department_id')
@@ -54,6 +71,7 @@ def add_department(request):
         return redirect('department_list')
     return render(request, 'departments/add-department.html')
 
+@role_required(['admin'])
 def edit_department(request, department_id):
     department = Department.objects.filter(department_id=department_id).first()
     if request.method == 'POST':
@@ -68,11 +86,13 @@ def edit_department(request, department_id):
     context = {'department': department}
     return render(request, 'departments/edit-department.html', context)
 
+@role_required(['admin', 'teacher', 'student'])
 def view_department(request, department_id):
     department = Department.objects.filter(department_id=department_id).first()
     context = {'department': department}
     return render(request, 'departments/department-details.html', context)
 
+@role_required(['admin'])
 def delete_department(request, department_id):
     department = Department.objects.filter(department_id=department_id).first()
     if department:
@@ -81,11 +101,13 @@ def delete_department(request, department_id):
     return redirect('department_list')
 
 # --- Teachers ---
+@role_required(['admin', 'teacher', 'student'])
 def teacher_list(request):
     teachers = Teacher.objects.all()
     context = {'teacher_list': teachers}
     return render(request, 'teachers/teachers.html', context)
 
+@role_required(['admin'])
 def add_teacher(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
@@ -124,6 +146,7 @@ def add_teacher(request):
     context = {'departments': departments}
     return render(request, 'teachers/add-teacher.html', context)
 
+@role_required(['admin'])
 def edit_teacher(request, teacher_id):
     teacher = Teacher.objects.filter(teacher_id=teacher_id).first()
     if request.method == 'POST':
@@ -152,11 +175,13 @@ def edit_teacher(request, teacher_id):
     context = {'teacher': teacher, 'departments': departments}
     return render(request, 'teachers/edit-teacher.html', context)
 
+@role_required(['admin'])
 def view_teacher(request, teacher_id):
     teacher = Teacher.objects.filter(teacher_id=teacher_id).first()
     context = {'teacher': teacher}
     return render(request, 'teachers/teacher-details.html', context)
 
+@role_required(['admin'])
 def delete_teacher(request, teacher_id):
     teacher = Teacher.objects.filter(teacher_id=teacher_id).first()
     if teacher:
@@ -165,25 +190,26 @@ def delete_teacher(request, teacher_id):
     return redirect('teacher_list')
 
 # --- Generic Redirects ---
+@role_required(['admin', 'teacher', 'student'])
 def department_view_generic(request):
-    first_dept = Department.objects.first()
-    if first_dept: return redirect('view_department', department_id=first_dept.department_id)
-    return redirect('department_list')
+    departments = Department.objects.all()
+    return render(request, 'departments/select_department.html', {'departments': departments, 'action': 'view'})
 
+@role_required(['admin'])
 def department_edit_generic(request):
-    first_dept = Department.objects.first()
-    if first_dept: return redirect('edit_department', department_id=first_dept.department_id)
-    return redirect('department_list')
+    departments = Department.objects.all()
+    return render(request, 'departments/select_department.html', {'departments': departments, 'action': 'edit'})
     
+@role_required(['admin'])
 def teacher_view_generic(request):
-    first_teacher = Teacher.objects.first()
-    if first_teacher: return redirect('view_teacher', teacher_id=first_teacher.teacher_id)
-    return redirect('teacher_list')
+    teachers = Teacher.objects.all()
+    return render(request, 'teachers/select_teacher.html', {'teachers': teachers, 'action': 'view'})
     
+@role_required(['admin'])
 def teacher_edit_generic(request):
-    first_teacher = Teacher.objects.first()
-    if first_teacher: return redirect('edit_teacher', teacher_id=first_teacher.teacher_id)
-    return redirect('teacher_list')
+    teachers = Teacher.objects.all()
+    return render(request, 'teachers/select_teacher.html', {'teachers': teachers, 'action': 'edit'})
 
+@role_required(['teacher'])
 def teacher_dashboard(request):
     return render(request, 'teachers/teacher-dashboard.html')
