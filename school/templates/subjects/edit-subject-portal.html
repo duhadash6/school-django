@@ -1,0 +1,79 @@
+{% extends 'Home/base.html' %}
+
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Select a Subject to Edit</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'subject_list' %}">Subjects</a></li>
+                        <li class="breadcrumb-item active">Edit Portal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="GET" action="{% url 'subject_edit_portal' %}">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <input type="text" name="search" class="form-control" placeholder="Search by Subject Name or ID to edit..." value="{{ search_query|default_if_none:'' }}">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-center mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Subject ID</th>
+                                        <th>Name</th>
+                                        <th>Class</th>
+                                        <th class="text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for subject in subjects %}
+                                    <tr>
+                                        <td>{{ subject.subject_id }}</td>
+                                        <td><h2><a>{{ subject.name }}</a></h2></td>
+                                        <td>{{ subject.class_name }}</td>
+                                        <td class="text-right">
+                                            <a href="{% url 'edit_subject' subject.subject_id %}" class="btn btn-sm bg-success-light">
+                                                <i class="fas fa-pen"></i> Edit Subject
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="4" class="text-center">No subjects found matching your search.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

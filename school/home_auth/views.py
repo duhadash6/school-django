@@ -10,6 +10,10 @@ def signup_view(request):
         email = request.POST['email']
         password = request.POST['password']
         role = request.POST.get('role') 
+        
+        if CustomUser.objects.filter(email=email).exists():
+            messages.error(request, 'This email is already registered. Please log in or use a different email.')
+            return render(request, 'Home/register.html')
 
         user = CustomUser.objects.create_user(
             username=email,

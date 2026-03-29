@@ -6,4 +6,5 @@ urlpatterns = [
     path('add/', views.add_subject, name='add_subject'),
     path('edit/<str:subject_id>/', views.edit_subject, name='edit_subject'),
     path('delete/<str:subject_id>/', views.delete_subject, name='delete_subject'),
+    path('edit-portal/', views.subject_edit_portal, name='subject_edit_portal'),
 ]
