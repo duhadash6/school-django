@@ -18,10 +18,10 @@
       <div class="main-wrapper">
          <div class="header">
             <div class="header-left">
-               <a href="index.html" class="logo">
+               <a href="{% url 'index' %}" class="logo">
                <img src="{% static 'assets/img/logo.png' %}" alt="Logo">
                </a>
-               <a href="index.html" class="logo logo-small">
+               <a href="{% url 'index' %}" class="logo logo-small">
                <img src="{% static 'assets/img/logo-small.png' %}" alt="Logo" width="30" height="30">
                </a>
             </div>
@@ -71,7 +71,7 @@
                      </div>
                      <a class="dropdown-item" href="profile.html">My Profile</a>
                      <a class="dropdown-item" href="inbox.html">Inbox</a>
-                     <a class="dropdown-item" href="">Logout</a>
+                     <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                   </div>
                </li>
             </ul>
@@ -120,9 +120,9 @@
                      <li class="submenu">
                         <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
                         <ul>
-                           <li><a href="subjects.html">Subject List</a></li>
-                           <li><a href="add-subject.html">Subject Add</a></li>
-                           <li><a href="edit-subject.html">Subject Edit</a></li>
+                           <li><a href="{% url 'subject_list' %}">Subject List</a></li>
+                           <li><a href="{% url 'add_subject' %}">Subject Add</a></li>
+                           <li><a href="#">Subject Edit</a></li>
                         </ul>
                      </li>
                      <li class="menu-title">
@@ -140,7 +140,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="holiday.html"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
+                        <a href="{% url 'holiday_list' %}"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
                      </li>
                      <li>
                         <a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
@@ -163,9 +163,9 @@
                      <li class="submenu">
                         <a href="#"><i class="fas fa-shield-alt"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
                         <ul>
-                           <li><a href="">Login</a></li>
-                           <li><a href="">Register</a></li>
-                           <li><a href="">Forgot Password</a></li>
+                           <li><a href="{% url 'login' %}">Login</a></li>
+                           <li><a href="{% url 'signup' %}">Register</a></li>
+                           <li><a href="{% url 'forgot-password' %}">Forgot Password</a></li>
                            <li><a href="error-404.html">Error Page</a></li>
                         </ul>
                      </li>
