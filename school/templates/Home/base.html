@@ -142,8 +142,12 @@
                            <li><a href="add-salary.html">Add Salary</a></li>
                         </ul>
                      </li>
-                     <li>
-                        <a href="{% url 'holiday_list' %}"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
+                     <li class="submenu">
+                        <a href="#"><i class="fas fa-umbrella-beach"></i><span> Holiday</span><span class="menu-arrow"></span></a>
+                        <ul>
+                           <li><a href="{% url 'holiday_list' %}">Holiday List</a></li>
+                           <li><a href="{% url 'holiday_calendar' %}">Calendar View</a></li>
+                        </ul>
                      </li>
                      <li>
                         <a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
