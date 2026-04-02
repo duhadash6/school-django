@@ -41,7 +41,7 @@
         var calendarEl = document.getElementById('calendar');
         
         // We grab the JSON string from Django and parse it safely into JavaScript
-        var eventsData = JSON.parse('{{ events_json|safe }}');
+        var eventsData = {{ events_json|safe }};
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
