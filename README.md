@@ -8,7 +8,7 @@ Plateforme web développée sous **Django** pour la gestion centralisée, admini
 
 ## 🎥  Démonstration vidéo
 
-[![PreSkool Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/-PvPgftyaXI)
+[![PreSkool Demo Video](https://img.youtube.com/vi/-PvPgftyaXI/maxresdefault.jpg)](https://youtu.be/-PvPgftyaXI)
 
 ## Fonctionnalités
 | Fonctionnalité | Description |
