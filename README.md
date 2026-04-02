@@ -6,6 +6,10 @@
 ## Description
 Plateforme web développée sous **Django** pour la gestion centralisée, administrative et académique d'un établissement scolaire. Elle intègre un système d'authentification robuste (RBAC) avec des espaces sécurisés et sur-mesure répondant aux besoins quotidiens des **étudiants**, des **professeurs** et de l'**administration**.
 
+## 🎥  Démonstration vidéo
+
+[![PreSkool Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/-PvPgftyaXI)
+
 ## Fonctionnalités
 | Fonctionnalité | Description |
 |----------------|-------------|
