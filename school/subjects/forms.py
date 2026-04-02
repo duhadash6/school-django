@@ -27,4 +27,18 @@ class ExamForm(forms.ModelForm):
             'end_time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
         }
 
+from .models import Timetable
+
+class TimetableForm(forms.ModelForm):
+    class Meta:
+        model = Timetable
+        fields = ['subject', 'day', 'start_time', 'end_time', 'room_number']
+        widgets = {
+            'subject': forms.Select(attrs={'class': 'form-control'}),
+            'day': forms.Select(attrs={'class': 'form-control'}),
+            'start_time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
+            'end_time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
+            'room_number': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
 

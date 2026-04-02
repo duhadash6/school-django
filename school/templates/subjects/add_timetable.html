@@ -1,0 +1,52 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Add Class to Timetable</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="form-title"><span>Schedule Information</span></h5>
+                                </div>
+                                {% for field in form %}
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>{{ field.label }}</label>
+                                        {{ field }}
+                                        {% if field.errors %}
+                                        <div class="text-danger small">{{ field.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary">Save to Timetable</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      
+      
+      
+      
+      
+{% endblock %}

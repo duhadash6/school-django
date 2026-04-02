@@ -37,3 +37,59 @@ class Exam(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject.name}"
+
+
+from django.conf import settings
+
+class Enrollment(models.Model):
+    student = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.CASCADE, 
+        related_name='enrollments',
+        limit_choices_to={'is_student': True}
+    )
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='enrollments')
+
+    class Meta:
+        unique_together = ('student', 'subject')
+
+    def __str__(self):
+        return f"{self.student} enrolled in {self.subject}"
+
+
+class ExamResult(models.Model):
+    student = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.CASCADE, 
+        related_name='exam_results',
+        limit_choices_to={'is_student': True}
+    )
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name='results')
+    marks_obtained = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    comments = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        unique_together = ('student', 'exam')
+
+    def __str__(self):
+        return f"{self.student} - {self.exam}"
+
+class Timetable(models.Model):
+    DAYS_OF_WEEK = [
+        ('0', 'Sunday'),
+        ('1', 'Monday'),
+        ('2', 'Tuesday'),
+        ('3', 'Wednesday'),
+        ('4', 'Thursday'),
+        ('5', 'Friday'),
+        ('6', 'Saturday'),
+    ]
+    
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='timetables')
+    day = models.CharField(max_length=1, choices=DAYS_OF_WEEK)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    room_number = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f"{self.subject.name} on {self.get_day_display()} ({self.start_time} - {self.end_time})"

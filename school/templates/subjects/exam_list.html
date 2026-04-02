@@ -7,9 +7,11 @@
                 <div class="col">
                     <h3 class="page-title">Exams</h3>
                 </div>
+                {% if not request.user.is_student %}
                 <div class="col-auto text-right float-right ml-auto">
                     <a href="{% url 'add_exam' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Exam</a>
                 </div>
+                {% endif %}
             </div>
         </div>
 
@@ -45,7 +47,9 @@
                                         <th>Subject</th>
                                         <th>Date</th>
                                         <th>Time</th>
+                                        {% if not request.user.is_student %}
                                         <th class="text-right">Action</th>
+                                        {% endif %}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,8 +60,12 @@
                                         <td>{{ exam.subject.name }}</td>
                                         <td>{{ exam.exam_date|date:"d M Y" }}</td>
                                         <td>{{ exam.start_time|time:"H:i" }} - {{ exam.end_time|time:"H:i" }}</td>
+                                        {% if not request.user.is_student %}
                                         <td class="text-right">
                                             <div class="actions">
+                                                <a href="{% url 'grade_exam' exam.exam_id %}" class="btn btn-sm bg-info-light mr-2" title="Grade Exam">
+                                                    <i class="fas fa-clipboard-check"></i>
+                                                </a>
                                                 <a href="{% url 'edit_exam' exam.exam_id %}" class="btn btn-sm bg-success-light mr-2">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
@@ -66,6 +74,7 @@
                                                 </a>
                                             </div>
                                         </td>
+                                        {% endif %}
                                     </tr>
                                     {% empty %}
                                     <tr><td colspan="6" class="text-center">No exams found.</td></tr>
