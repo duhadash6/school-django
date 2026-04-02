@@ -1,0 +1,1730 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-28T00:51:28.117Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "1",
+    "object_repr": "Nassim & malak",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-03-28T00:51:54.478Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Doha Ziouani (P33445)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 3,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 2,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 2,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 2,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 2,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add parent",
+    "content_type": 6,
+    "codename": "add_parent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change parent",
+    "content_type": 6,
+    "codename": "change_parent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete parent",
+    "content_type": 6,
+    "codename": "delete_parent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view parent",
+    "content_type": 6,
+    "codename": "view_parent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add student",
+    "content_type": 7,
+    "codename": "add_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change student",
+    "content_type": 7,
+    "codename": "change_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete student",
+    "content_type": 7,
+    "codename": "delete_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view student",
+    "content_type": 7,
+    "codename": "view_student"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 8,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 8,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 8,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 8,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add password reset request",
+    "content_type": 9,
+    "codename": "add_passwordresetrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change password reset request",
+    "content_type": 9,
+    "codename": "change_passwordresetrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete password reset request",
+    "content_type": 9,
+    "codename": "delete_passwordresetrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view password reset request",
+    "content_type": 9,
+    "codename": "view_passwordresetrequest"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add teacher",
+    "content_type": 11,
+    "codename": "add_teacher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change teacher",
+    "content_type": 11,
+    "codename": "change_teacher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete teacher",
+    "content_type": 11,
+    "codename": "delete_teacher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view teacher",
+    "content_type": 11,
+    "codename": "view_teacher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add department",
+    "content_type": 10,
+    "codename": "add_department"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change department",
+    "content_type": 10,
+    "codename": "change_department"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete department",
+    "content_type": 10,
+    "codename": "delete_department"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view department",
+    "content_type": 10,
+    "codename": "view_department"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add subject",
+    "content_type": 12,
+    "codename": "add_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change subject",
+    "content_type": 12,
+    "codename": "change_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete subject",
+    "content_type": 12,
+    "codename": "delete_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view subject",
+    "content_type": 12,
+    "codename": "view_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add holiday",
+    "content_type": 13,
+    "codename": "add_holiday"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change holiday",
+    "content_type": 13,
+    "codename": "change_holiday"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete holiday",
+    "content_type": 13,
+    "codename": "delete_holiday"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view holiday",
+    "content_type": 13,
+    "codename": "view_holiday"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add exam",
+    "content_type": 14,
+    "codename": "add_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change exam",
+    "content_type": 14,
+    "codename": "change_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete exam",
+    "content_type": 14,
+    "codename": "delete_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view exam",
+    "content_type": 14,
+    "codename": "view_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add exam result",
+    "content_type": 16,
+    "codename": "add_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change exam result",
+    "content_type": 16,
+    "codename": "change_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete exam result",
+    "content_type": 16,
+    "codename": "delete_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view exam result",
+    "content_type": 16,
+    "codename": "view_examresult"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add enrollment",
+    "content_type": 15,
+    "codename": "add_enrollment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change enrollment",
+    "content_type": 15,
+    "codename": "change_enrollment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete enrollment",
+    "content_type": 15,
+    "codename": "delete_enrollment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view enrollment",
+    "content_type": 15,
+    "codename": "view_enrollment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add timetable",
+    "content_type": 17,
+    "codename": "add_timetable"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change timetable",
+    "content_type": 17,
+    "codename": "change_timetable"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete timetable",
+    "content_type": 17,
+    "codename": "delete_timetable"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view timetable",
+    "content_type": 17,
+    "codename": "view_timetable"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "student",
+    "model": "parent"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "student",
+    "model": "student"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "home_auth",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "home_auth",
+    "model": "passwordresetrequest"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "faculty",
+    "model": "department"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "faculty",
+    "model": "teacher"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "subjects",
+    "model": "subject"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "holidays",
+    "model": "holiday"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "subjects",
+    "model": "exam"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "subjects",
+    "model": "enrollment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "subjects",
+    "model": "examresult"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "subjects",
+    "model": "timetable"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3dnbiveiigdnq7qv00yhdo345bc1omu9",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQAP9lz4bwEFh69N5vIAtspWpoUtqT8d9Nkx70OjOZN0Tatxr3zmucCwzg4PLLEuUnt0OUB7X7IvLStnVO4kjEabsYl8Kv29n-DSr1CgNQsIb4ylIGrbzyrNFL5DIlLBkxJ6cNWiOzCiiJSWnSlo0pNqTJYYLPF9bbN6g:1w87wH:NOxJzhfAlY4nhB9y9VtCP1kFigCrvRiCb9LnsOd2ytc",
+    "expire_date": "2026-04-16T02:37:45.495Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "eqjti9d090t8wrydltrdt89eygsvow2n",
+  "fields": {
+    "session_data": ".eJxVjDEOgzAMAP_iuYpIQlzC2J03IDs2hbZKJAJT1b9XSAztene6N4y0b_O4V13HRaAHC5dfxpSemg8hD8r3YlLJ27qwORJz2mqGIvq6ne3fYKY6Qw9OmhiJubUS2XmLOnXkNYUresGQuJMWObg2aMQUXcNqPZPVTt2EHODzBeu9ODI:1w6Hsc:A7pS6G_8vGJ499n2jit1zMh29KtIXZ7H9iGfXoESqt4",
+    "expire_date": "2026-04-11T00:50:22.263Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vklmuo2n9uo2u20zp34tfuck6mhk0l3y",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQAP9lz4bwEFh69N5vIAtspWpoUtqT8d9Nkx70OjOZN0Tatxr3zmucCwzg4PLLEuUnt0OUB7X7IvLStnVO4kjEabsYl8Kv29n-DSr1CgNQsIb4ylIGrbzyrNFL5DIlLBkxJ6cNWiOzCiiJSWnSlo0pNqTJYYLPF9bbN6g:1w87wF:9qQrfhZBwXEe-Ghth8tACNCUCPAXSKZX78zqXGVkFYI",
+    "expire_date": "2026-04-16T02:37:43.590Z"
+  }
+},
+{
+  "model": "faculty.department",
+  "pk": 1,
+  "fields": {
+    "department_id": "PP",
+    "name": "informatique",
+    "head_of_department": "JUJ",
+    "start_year": 2024,
+    "students_capacity": 79
+  }
+},
+{
+  "model": "faculty.department",
+  "pk": 2,
+  "fields": {
+    "department_id": "CS101",
+    "name": "Computer Science",
+    "head_of_department": "Dr. Alami",
+    "start_year": 2000,
+    "students_capacity": 200
+  }
+},
+{
+  "model": "faculty.teacher",
+  "pk": 1,
+  "fields": {
+    "first_name": "TEST_FN",
+    "last_name": "TEST_LN",
+    "teacher_id": "0001",
+    "gender": "Male",
+    "date_of_birth": "2026-03-28",
+    "joining_date": "2026-03-28",
+    "mobile_number": "0612814380",
+    "experience": "TEST_EXP",
+    "avatar": "",
+    "department": 1,
+    "email": "TEST@preschool.org",
+    "address": "TEST_ADD"
+  }
+},
+{
+  "model": "faculty.teacher",
+  "pk": 2,
+  "fields": {
+    "first_name": "Ayoub",
+    "last_name": "Chentouf",
+    "teacher_id": "T001",
+    "gender": "Male",
+    "date_of_birth": "1985-05-20",
+    "joining_date": "2015-09-01",
+    "mobile_number": "0600000001",
+    "experience": "10 Years",
+    "avatar": "",
+    "department": 2,
+    "email": "ayoub.chentouf@example.com",
+    "address": ""
+  }
+},
+{
+  "model": "student.parent",
+  "pk": 3,
+  "fields": {
+    "father_name": "Nassim",
+    "father_occupation": "hk",
+    "father_mobile": "0697641039",
+    "father_email": "dohaziouani3@gmail.com",
+    "mother_name": "malak",
+    "mother_occupation": "fk",
+    "mother_mobile": "0697641039",
+    "mother_email": "dohaziouani3@gmail.com",
+    "present_address": "RES AMINE AV NIGERIA IMM 7 NO 4 TANGER",
+    "permanent_address": "sjxma"
+  }
+},
+{
+  "model": "student.parent",
+  "pk": 4,
+  "fields": {
+    "father_name": "ALI",
+    "father_occupation": "PROF",
+    "father_mobile": "0612121234",
+    "father_email": "chentayoub1@gmail.com",
+    "mother_name": "chadia",
+    "mother_occupation": "---",
+    "mother_mobile": "0612612612",
+    "mother_email": "chadoo@gmail.com",
+    "present_address": "zemouri 3/ comp 22/ souad b1/etg n1/ N:27",
+    "permanent_address": "zemouri 3/ comp 22/ souad b1/etg n1/ N:27"
+  }
+},
+{
+  "model": "student.student",
+  "pk": 3,
+  "fields": {
+    "first_name": "Doha",
+    "last_name": "Ziouani",
+    "student_id": "P33445",
+    "gender": "Female",
+    "date_of_birth": "2026-03-27",
+    "student_class": "Ap2",
+    "joining_date": "2026-03-13",
+    "mobile_number": "0697641039",
+    "admission_number": "0576890324",
+    "section": "Aps",
+    "student_image": "",
+    "parent": 3
+  }
+},
+{
+  "model": "student.student",
+  "pk": 4,
+  "fields": {
+    "first_name": "Ayoub",
+    "last_name": "Chentouf",
+    "student_id": "0002",
+    "gender": "Male",
+    "date_of_birth": "2003-10-22",
+    "student_class": "IDAI",
+    "joining_date": "2026-04-01",
+    "mobile_number": "0612814380",
+    "admission_number": "3992",
+    "section": "A.1",
+    "student_image": "",
+    "parent": 4
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$INmD1LducGY2V2MtwIp8WR$PEaLc6MzkEM4oNmTAFznOMYgZU/0lJg/3vC037w7VPM=",
+    "last_login": "2026-03-28T00:50:22.255Z",
+    "is_superuser": true,
+    "is_staff": true,
+    "is_active": true,
+    "username": "doha",
+    "email": "dohaziouani3@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "",
+    "last_name": "",
+    "date_joined": "2026-03-28T00:49:34.568Z",
+    "is_student": false,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$phfAKbZesm5cKghNG2L2yb$WEglBPHYmxQdJr9TGU/vH5600QjkZkJhq8682z6jvZs=",
+    "last_login": "2026-03-28T16:03:53.942Z",
+    "is_superuser": true,
+    "is_staff": true,
+    "is_active": true,
+    "username": "chentayoub",
+    "email": "chentayoub1@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "",
+    "last_name": "",
+    "date_joined": "2026-03-28T16:03:29.228Z",
+    "is_student": false,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$znqCOZidhtOYRacJRIiUmW$59ihz4SwPq3yewbtyDQykmbfF9fcdx2ix5P9HxUamwg=",
+    "last_login": "2026-03-29T10:01:19.455Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "chentayoub@gmail.com",
+    "email": "chentayoub@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "Ayoub",
+    "last_name": "Chentouf",
+    "date_joined": "2026-03-29T10:01:19.436Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$IgPCEV1oGGwuaLlV9FsBkc$GRrfeZqWiOTXRL37amHkagkeegmUqDtlooF7mMjbwwE=",
+    "last_login": "2026-03-29T10:07:55.797Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "adminaccount@gmail.com",
+    "email": "adminaccount@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "admin",
+    "last_name": "Chentouf",
+    "date_joined": "2026-03-29T10:02:53.051Z",
+    "is_student": false,
+    "is_admin": true,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$LQc4SOgb7ylZmMSAobY1LK$fhIE+GQ3OeIl6ebXWxJdJiomeq5CkI/5Z/4FQ6H2Z4I=",
+    "last_login": "2026-04-01T13:15:58.113Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "chen1@gmail.com",
+    "email": "chen1@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "Ayoub",
+    "last_name": "Chentouf",
+    "date_joined": "2026-04-01T13:15:58.085Z",
+    "is_student": false,
+    "is_admin": true,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$GIIUKbTNkr1pkCvGPe8Fs7$D39/j2gzMfCJhCtgv6pZj1q5KukIlyGjMFiNlUv91Mo=",
+    "last_login": "2026-04-02T02:37:45.482Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "dohaziouani05@gmail.com",
+    "email": "dohaziouani05@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "doha ",
+    "last_name": "ziouani",
+    "date_joined": "2026-04-01T18:41:02.932Z",
+    "is_student": false,
+    "is_admin": false,
+    "is_teacher": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$aPOwWnU7tJY3ZRPIuvrmeA$FwLu6QKe8oTy4bWgNetUP1tVRK2+o2MDz5jnPRFH+sw=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "ayoub",
+    "email": "ayoub@example.com",
+    "is_authorized": true,
+    "login_token": null,
+    "first_name": "Ayoub",
+    "last_name": "Chentouf",
+    "date_joined": "2026-04-01T19:46:10.976Z",
+    "is_student": false,
+    "is_admin": false,
+    "is_teacher": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$kkR3AR4QP3wAqwWrU9OvWp$gQ582kKG6SR7ZODOlGc8W/jf6L6N4aNV7K53rB3OcG0=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "youssef",
+    "email": "youssef@example.com",
+    "is_authorized": true,
+    "login_token": null,
+    "first_name": "Youssef",
+    "last_name": "Alaoui",
+    "date_joined": "2026-04-01T19:46:14.934Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$k6gNpMeUkeUMdRIPXTUkU3$/n5ik0Czrg5awnL8aTz7ZIg13xlZHEbeVuq2voG7a8U=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "fatima",
+    "email": "fatima@example.com",
+    "is_authorized": true,
+    "login_token": null,
+    "first_name": "Fatima Zahra",
+    "last_name": "Idrissi",
+    "date_joined": "2026-04-01T19:46:18.913Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$iNbDn5G18512MGUY4IvzlX$rXyQbW6tuzNg4+i/MQZ0kNFDJO6saEgd0xrUfqDh9Nw=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "omar",
+    "email": "omar@example.com",
+    "is_authorized": true,
+    "login_token": null,
+    "first_name": "Omar",
+    "last_name": "Bennis",
+    "date_joined": "2026-04-01T19:46:23.236Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$bqOuay7QGMfAikufy1rnRC$0z9Xl5WmpGEaJGMKFF/Fwm+ujQWaa+xxkr6pNv6iyb0=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "khadija",
+    "email": "khadija@example.com",
+    "is_authorized": true,
+    "login_token": null,
+    "first_name": "Khadija",
+    "last_name": "Tazi",
+    "date_joined": "2026-04-01T19:46:27.126Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$ajsiSf3wkrbQSPJdb0MQWd$IZTPNezDTg8KvsFtKZpG77gvYVvRaE9AmlQ+lcz6xO0=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "amine",
+    "email": "amine@example.com",
+    "is_authorized": true,
+    "login_token": null,
+    "first_name": "Amine",
+    "last_name": "El Fassi",
+    "date_joined": "2026-04-01T19:46:30.480Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$fvGlFphl39GgvDBTI92l4t$+pqtZ/Ipo13fDs3PaHX8xFui/xcM/BmqqZFb+mwx+lA=",
+    "last_login": "2026-04-01T19:48:45.108Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "student1@gmail.com",
+    "email": "student1@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "student",
+    "last_name": "student",
+    "date_joined": "2026-04-01T19:48:45.051Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Mow5XOni4VaEiPNYIYUe4p$/KkRsXP/a+HZN8YGvbC+WfcNfcrvQVCE8xpMXAEhu0w=",
+    "last_login": "2026-04-01T21:07:59.036Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "admin@student.com",
+    "email": "admin@student.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "admin",
+    "last_name": "admin",
+    "date_joined": "2026-04-01T21:07:59.002Z",
+    "is_student": false,
+    "is_admin": true,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$tdAbGVSSAwjc27NQPTR1jU$zy0sYlH8AQnJ5NbfmFZ978/8fcpf7i1ou6gBNVhfySo=",
+    "last_login": "2026-04-02T01:33:09.315Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "AdminAdmin@gmail.com",
+    "email": "AdminAdmin@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "Admin",
+    "last_name": "ADMIN",
+    "date_joined": "2026-04-02T00:37:02.032Z",
+    "is_student": false,
+    "is_admin": true,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$UQLXR3V1zuVobr2owUI6IW$Mrxt3rIX8g5qareYfGZDwwbHCx+OuRVnB2rPTzpHuno=",
+    "last_login": "2026-04-02T02:14:39.895Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "admin@gmail.com",
+    "email": "admin@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "admin",
+    "last_name": "ADMIN",
+    "date_joined": "2026-04-02T01:22:38.722Z",
+    "is_student": false,
+    "is_admin": true,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$MlTIUfCdT0Vzh6u5nlu5tA$zhQjGiYcf6EVQz+bEMikYdaKFhgHRKfgkIa2Tm7GO3w=",
+    "last_login": "2026-04-02T01:42:57.795Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "dohaziouani055@gmail.com",
+    "email": "dohaziouani055@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "doha",
+    "last_name": "ziouani",
+    "date_joined": "2026-04-02T01:32:13.244Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "home_auth.customuser",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$tDKUSax3FSzXiVxqRYMZ46$QSQQ+ThFivxyNPgI9a9kZLVvTmLm+EM6bTWa2YXbSiA=",
+    "last_login": "2026-04-02T02:33:48.151Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "username": "alouae@gmail.com",
+    "email": "alouae@gmail.com",
+    "is_authorized": false,
+    "login_token": null,
+    "first_name": "alae",
+    "last_name": "chentouf",
+    "date_joined": "2026-04-02T02:33:48.106Z",
+    "is_student": true,
+    "is_admin": false,
+    "is_teacher": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "subjects.subject",
+  "pk": 1,
+  "fields": {
+    "subject_id": "0001",
+    "name": "BE PYTHON",
+    "department": 1,
+    "teacher": 1
+  }
+},
+{
+  "model": "subjects.subject",
+  "pk": 2,
+  "fields": {
+    "subject_id": "SUBJ-MATH1",
+    "name": "Mathematics 101",
+    "department": 2,
+    "teacher": 2
+  }
+},
+{
+  "model": "subjects.subject",
+  "pk": 3,
+  "fields": {
+    "subject_id": "SUBJ-PHYS1",
+    "name": "Physics 101",
+    "department": 2,
+    "teacher": 2
+  }
+},
+{
+  "model": "subjects.exam",
+  "pk": 1,
+  "fields": {
+    "exam_id": "0001",
+    "name": "EXAM PYTHON RATT",
+    "subject": 1,
+    "exam_date": "2026-04-01",
+    "start_time": "15:00:00",
+    "end_time": "16:50:00"
+  }
+},
+{
+  "model": "subjects.exam",
+  "pk": 2,
+  "fields": {
+    "exam_id": "EXAM-MATH101",
+    "name": "Midterm Calculus",
+    "subject": 2,
+    "exam_date": "2026-04-15",
+    "start_time": "09:00:00",
+    "end_time": "11:00:00"
+  }
+},
+{
+  "model": "subjects.exam",
+  "pk": 3,
+  "fields": {
+    "exam_id": "EXAM-PHYS101",
+    "name": "Mechanics Final",
+    "subject": 3,
+    "exam_date": "2026-04-18",
+    "start_time": "14:00:00",
+    "end_time": "16:00:00"
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 1,
+  "fields": {
+    "student": 8,
+    "subject": 2
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 2,
+  "fields": {
+    "student": 8,
+    "subject": 3
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 3,
+  "fields": {
+    "student": 9,
+    "subject": 2
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 4,
+  "fields": {
+    "student": 9,
+    "subject": 3
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 5,
+  "fields": {
+    "student": 10,
+    "subject": 2
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 6,
+  "fields": {
+    "student": 10,
+    "subject": 3
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 7,
+  "fields": {
+    "student": 11,
+    "subject": 2
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 8,
+  "fields": {
+    "student": 11,
+    "subject": 3
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 9,
+  "fields": {
+    "student": 12,
+    "subject": 2
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 10,
+  "fields": {
+    "student": 12,
+    "subject": 3
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 11,
+  "fields": {
+    "student": 13,
+    "subject": 1
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 12,
+  "fields": {
+    "student": 17,
+    "subject": 1
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 13,
+  "fields": {
+    "student": 17,
+    "subject": 2
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 14,
+  "fields": {
+    "student": 17,
+    "subject": 3
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 15,
+  "fields": {
+    "student": 18,
+    "subject": 1
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 16,
+  "fields": {
+    "student": 18,
+    "subject": 2
+  }
+},
+{
+  "model": "subjects.enrollment",
+  "pk": 17,
+  "fields": {
+    "student": 18,
+    "subject": 3
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 1,
+  "fields": {
+    "student": 8,
+    "exam": 2,
+    "marks_obtained": "14.76",
+    "comments": "Excellent"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 2,
+  "fields": {
+    "student": 8,
+    "exam": 3,
+    "marks_obtained": "12.55",
+    "comments": "Good work"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 3,
+  "fields": {
+    "student": 9,
+    "exam": 2,
+    "marks_obtained": "12.46",
+    "comments": "Excellent"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 4,
+  "fields": {
+    "student": 9,
+    "exam": 3,
+    "marks_obtained": "14.63",
+    "comments": "Good work"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 5,
+  "fields": {
+    "student": 10,
+    "exam": 2,
+    "marks_obtained": "16.18",
+    "comments": "Excellent"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 6,
+  "fields": {
+    "student": 10,
+    "exam": 3,
+    "marks_obtained": "10.73",
+    "comments": "Good work"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 7,
+  "fields": {
+    "student": 11,
+    "exam": 2,
+    "marks_obtained": "13.91",
+    "comments": "Excellent"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 8,
+  "fields": {
+    "student": 11,
+    "exam": 3,
+    "marks_obtained": "14.77",
+    "comments": "Good work"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 9,
+  "fields": {
+    "student": 12,
+    "exam": 2,
+    "marks_obtained": "12.74",
+    "comments": "Excellent"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 10,
+  "fields": {
+    "student": 12,
+    "exam": 3,
+    "marks_obtained": "8.95",
+    "comments": "Good work"
+  }
+},
+{
+  "model": "subjects.examresult",
+  "pk": 11,
+  "fields": {
+    "student": 17,
+    "exam": 2,
+    "marks_obtained": "20.00",
+    "comments": "exceptional"
+  }
+},
+{
+  "model": "subjects.timetable",
+  "pk": 1,
+  "fields": {
+    "subject": 2,
+    "day": "1",
+    "start_time": "09:00:00",
+    "end_time": "11:00:00",
+    "room_number": "101"
+  }
+},
+{
+  "model": "subjects.timetable",
+  "pk": 2,
+  "fields": {
+    "subject": 2,
+    "day": "3",
+    "start_time": "09:00:00",
+    "end_time": "11:00:00",
+    "room_number": "101"
+  }
+},
+{
+  "model": "subjects.timetable",
+  "pk": 3,
+  "fields": {
+    "subject": 3,
+    "day": "2",
+    "start_time": "14:00:00",
+    "end_time": "16:00:00",
+    "room_number": "202"
+  }
+},
+{
+  "model": "subjects.timetable",
+  "pk": 4,
+  "fields": {
+    "subject": 3,
+    "day": "4",
+    "start_time": "14:00:00",
+    "end_time": "16:00:00",
+    "room_number": "202"
+  }
+},
+{
+  "model": "subjects.timetable",
+  "pk": 5,
+  "fields": {
+    "subject": 1,
+    "day": "4",
+    "start_time": "16:01:00",
+    "end_time": "17:01:00",
+    "room_number": "F15"
+  }
+},
+{
+  "model": "subjects.timetable",
+  "pk": 6,
+  "fields": {
+    "subject": 1,
+    "day": "5",
+    "start_time": "15:06:00",
+    "end_time": "05:06:00",
+    "room_number": "F15"
+  }
+},
+{
+  "model": "holidays.holiday",
+  "pk": 2,
+  "fields": {
+    "holiday_id": "0001",
+    "name": "Ayoub Chentouf",
+    "holiday_type": "Public Holiday",
+    "start_date": "2026-04-01",
+    "end_date": "2026-04-04",
+    "description": ""
+  }
+}
+]
