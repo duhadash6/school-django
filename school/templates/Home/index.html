@@ -18,12 +18,12 @@
                   <div class="col-xl-3 col-sm-6 col-12 d-flex">
                      <div class="card bg-one w-100">
                         <div class="card-body">
-                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-widgets d-flex align-items-center justify-content-center">
                               <div class="db-icon">
                                  <i class="fas fa-user-graduate"></i>
                               </div>
                               <div class="db-info">
-                                 <h3>50055</h3>
+                                 <h3>{{ student_count }}</h3>
                                  <h6>Students</h6>
                               </div>
                            </div>
@@ -33,13 +33,13 @@
                   <div class="col-xl-3 col-sm-6 col-12 d-flex">
                      <div class="card bg-two w-100">
                         <div class="card-body">
-                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-widgets d-flex align-items-center justify-content-center">
                               <div class="db-icon">
-                                 <i class="fas fa-crown"></i>
+                                 <i class="fas fa-chalkboard-teacher"></i>
                               </div>
                               <div class="db-info">
-                                 <h3>50+</h3>
-                                 <h6>Awards</h6>
+                                 <h3>{{ teacher_count }}</h3>
+                                 <h6>Teachers</h6>
                               </div>
                            </div>
                         </div>
@@ -48,13 +48,13 @@
                   <div class="col-xl-3 col-sm-6 col-12 d-flex">
                      <div class="card bg-three w-100">
                         <div class="card-body">
-                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-widgets d-flex align-items-center justify-content-center">
                               <div class="db-icon">
                                  <i class="fas fa-building"></i>
                               </div>
                               <div class="db-info">
-                                 <h3>30+</h3>
-                                 <h6>Department</h6>
+                                 <h3>{{ department_count }}</h3>
+                                 <h6>Departments</h6>
                               </div>
                            </div>
                         </div>
@@ -63,13 +63,13 @@
                   <div class="col-xl-3 col-sm-6 col-12 d-flex">
                      <div class="card bg-four w-100">
                         <div class="card-body">
-                           <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-widgets d-flex align-items-center justify-content-center">
                               <div class="db-icon">
-                                 <i class="fas fa-file-invoice-dollar"></i>
+                                 <i class="fas fa-book"></i>
                               </div>
                               <div class="db-info">
-                                 <h3>$505</h3>
-                                 <h6>Revenue</h6>
+                                 <h3>{{ subject_count }}</h3>
+                                 <h6>Subjects</h6>
                               </div>
                            </div>
                         </div>
@@ -77,57 +77,41 @@
                   </div>
                </div>
                <div class="row">
-                  <div class="col-md-12 col-lg-6">
-                     <div class="card card-chart">
+                  <div class="col-md-12 d-flex">
+                     <div class="card flex-fill">
                         <div class="card-header">
-                           <div class="row align-items-center">
-                              <div class="col-6">
-                                 <h5 class="card-title">Revenue</h5>
-                              </div>
-                              <div class="col-6">
-                                 <ul class="list-inline-group text-right mb-0 pl-0">
-                                    <li class="list-inline-item">
-                                       <div class="form-group mb-0 amount-spent-select">
-                                          <select class="form-control form-control-sm">
-                                             <option>Today</option>
-                                             <option>Last Week</option>
-                                             <option>Last Month</option>
-                                          </select>
-                                       </div>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
+                           <h5 class="card-title">Derniers Étudiants</h5>
                         </div>
                         <div class="card-body">
-                           <div id="apexcharts-area"></div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-12 col-lg-6">
-                     <div class="card card-chart">
-                        <div class="card-header">
-                           <div class="row align-items-center">
-                              <div class="col-6">
-                                 <h5 class="card-title">Number of Students</h5>
-                              </div>
-                              <div class="col-6">
-                                 <ul class="list-inline-group text-right mb-0 pl-0">
-                                    <li class="list-inline-item">
-                                       <div class="form-group mb-0 amount-spent-select">
-                                          <select class="form-control form-control-sm">
-                                             <option>Today</option>
-                                             <option>Last Week</option>
-                                             <option>Last Month</option>
-                                          </select>
-                                       </div>
-                                    </li>
-                                 </ul>
-                              </div>
+                           <div class="table-responsive">
+                              <table class="table table-hover table-center">
+                                 <thead class="thead-light">
+                                    <tr>
+                                       <th>Nom Complet</th>
+                                       <th>Classe</th>
+                                       <th>Date d'inscription</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    {% for student in recent_students %}
+                                    <tr>
+                                       <td class="text-nowrap">
+                                          <span class="avatar avatar-sm mr-2" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background-color:#{{ student.first_name|make_list|first|slugify }}{% cycle 'e8daef' 'aed6f1' 'a9dfbf' 'f9e79f' 'f5cba7' %};color:#333;font-weight:bold;font-size:12px;">
+                                             {{ student.first_name|make_list|first }}{{ student.last_name|make_list|first }}
+                                          </span>
+                                          {{ student.first_name }} {{ student.last_name }}
+                                       </td>
+                                       <td>{{ student.student_class }}</td>
+                                       <td>{{ student.joining_date|date:"d M Y" }}</td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                       <td colspan="3" class="text-center text-muted">Aucun étudiant enregistré</td>
+                                    </tr>
+                                    {% endfor %}
+                                 </tbody>
+                              </table>
                            </div>
-                        </div>
-                        <div class="card-body">
-                           <div id="bar"></div>
                         </div>
                      </div>
                   </div>
@@ -136,56 +120,35 @@
                   <div class="col-md-6 d-flex">
                      <div class="card flex-fill">
                         <div class="card-header">
-                           <h5 class="card-title">Star Students</h5>
+                           <h5 class="card-title">Derniers Enseignants</h5>
                         </div>
                         <div class="card-body">
                            <div class="table-responsive">
                               <table class="table table-hover table-center">
                                  <thead class="thead-light">
                                     <tr>
-                                       <th>ID</th>
-                                       <th>Name</th>
-                                       <th class="text-center">Marks</th>
-                                       <th class="text-center">Percentage</th>
-                                       <th class="text-right">Year</th>
+                                       <th>Nom Complet</th>
+                                       <th>Département</th>
+                                       <th>Rejoint le</th>
                                     </tr>
                                  </thead>
                                  <tbody>
+                                    {% for teacher in recent_teachers %}
                                     <tr>
-                                       <td class="text-nowrap"><div>PRE2209</div></td>
-                                       <td class="text-nowrap">John Smith</td>
-                                       <td class="text-center">1185</td>
-                                       <td class="text-center">98%</td>
-                                       <td class="text-right"><div>2019</div></td>
+                                       <td class="text-nowrap">
+                                          <span class="avatar avatar-sm mr-2" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background-color:#{% cycle 'e8daef' 'aed6f1' 'a9dfbf' 'f9e79f' 'f5cba7' %};color:#333;font-weight:bold;font-size:12px;">
+                                             {{ teacher.first_name|make_list|first }}{{ teacher.last_name|make_list|first }}
+                                          </span>
+                                          {{ teacher.first_name }} {{ teacher.last_name }}
+                                       </td>
+                                       <td>{{ teacher.department.name|default:"—" }}</td>
+                                       <td>{{ teacher.joining_date|date:"d M Y" }}</td>
                                     </tr>
+                                    {% empty %}
                                     <tr>
-                                       <td class="text-nowrap"><div>PRE1245</div></td>
-                                       <td class="text-nowrap">Jolie Hoskins</td>
-                                       <td class="text-center">1195</td>
-                                       <td class="text-center">99.5%</td>
-                                       <td class="text-right"><div>2018</div></td>
+                                       <td colspan="3" class="text-center text-muted">Aucun enseignant enregistré</td>
                                     </tr>
-                                    <tr>
-                                       <td class="text-nowrap"><div>PRE1625</div></td>
-                                       <td class="text-nowrap">Pennington Joy</td>
-                                       <td class="text-center">1196</td>
-                                       <td class="text-center">99.6%</td>
-                                       <td class="text-right"><div>2017</div></td>
-                                    </tr>
-                                    <tr>
-                                       <td class="text-nowrap"><div>PRE2516</div></td>
-                                       <td class="text-nowrap">Millie Marsden</td>
-                                       <td class="text-center">1187</td>
-                                       <td class="text-center">98.2%</td>
-                                       <td class="text-right"><div>2016</div></td>
-                                    </tr>
-                                    <tr>
-                                       <td class="text-nowrap"><div>PRE2209</div></td>
-                                       <td class="text-nowrap">John Smith</td>
-                                       <td class="text-center">1185</td>
-                                       <td class="text-center">98%</td>
-                                       <td class="text-right"><div>2015</div></td>
-                                    </tr>
+                                    {% endfor %}
                                  </tbody>
                               </table>
                            </div>
@@ -199,58 +162,21 @@
                         </div>
                         <div class="card-body">
                            <ul class="activity-feed">
+                              {% for activity in activities %}
                               <li class="feed-item">
-                                 <div class="feed-date">Apr 13</div>
-                                 <span class="feed-text"><a>John Doe</a> a validé son module de <a>"Biologie"</a></span>
+                                 <div class="feed-date">{{ activity.date|date:"d M" }}</div>
+                                 <span class="feed-text">
+                                    {{ activity.text }}
+                                 </span>
                               </li>
+                              {% empty %}
                               <li class="feed-item">
-                                 <div class="feed-date">Mar 21</div>
-                                 <span class="feed-text"><a>Justin Lee</a> a participé au TP de <a href="invoice.html">"Chimie"</a></span>
+                                 <div class="feed-date">Aujourd'hui</div>
+                                 <span class="feed-text">Pas d'activité récente</span>
                               </li>
-                              <li class="feed-item">
-                                 <div class="feed-date">Feb 2</div>
-                                 <span class="feed-text"><a>Justin Lee</a> a assisté au séminaire de <a href="profile.html">"Physiologie"</a></span>
-                              </li>
-                              <li class="feed-item">
-                                 <div class="feed-date">Apr 13</div>
-                                 <span class="feed-text"><a>John Doe</a> a terminé le cours de <a>"Physique"</a></span>
-                              </li>
-                              <li class="feed-item">
-                                 <div class="feed-date">Mar 21</div>
-                                 <span class="feed-text"><a>Justin Lee</a> a excellé en <a href="invoice.html">"Anatomie Pathologique"</a></span>
-                              </li>
+                              {% endfor %}
                            </ul>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-xl-3 col-sm-6 col-12">
-                     <div class="card flex-fill fb sm-box">
-                        <i class="fab fa-facebook"></i>
-                        <h6>50,095</h6>
-                        <p>Likes</p>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-sm-6 col-12">
-                     <div class="card flex-fill twitter sm-box">
-                        <i class="fab fa-twitter"></i>
-                        <h6>48,596</h6>
-                        <p>Follows</p>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-sm-6 col-12">
-                     <div class="card flex-fill insta sm-box">
-                        <i class="fab fa-instagram"></i>
-                        <h6>52,085</h6>
-                        <p>Follows</p>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-sm-6 col-12">
-                     <div class="card flex-fill linkedin sm-box">
-                        <i class="fab fa-linkedin-in"></i>
-                        <h6>69,050</h6>
-                        <p>Follows</p>
                      </div>
                   </div>
                </div>
@@ -259,13 +185,5 @@
                <p>Copyright © 2020 Dreamguys.</p>
             </footer>
          </div>
-
-      
-      
-      
-      
-      <script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
-      <script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
-      
 
 {% endblock %}
