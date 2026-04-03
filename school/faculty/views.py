@@ -4,10 +4,69 @@ from home_auth.decorators import role_required
 from django.http import Http404
 from django.template import TemplateDoesNotExist
 from .models import Teacher, Department
+from student.models import Student
+from subjects.models import Subject, Enrollment, ExamResult
+from django.db.models import F
 
 @role_required(['admin'])
 def admin_dashboard(request):
-    return render(request, 'Home/index.html')
+    # Real counts from the database
+    student_count = Student.objects.count()
+    teacher_count = Teacher.objects.count()
+    department_count = Department.objects.count()
+    subject_count = Subject.objects.count()
+
+    # Recent students (last 5, ordered by joining date)
+    recent_students = Student.objects.order_by('-joining_date')[:5]
+
+    # Recent teachers (last 5, ordered by joining date)
+    recent_teachers = Teacher.objects.select_related('department').order_by('-joining_date')[:5]
+
+    # Recent Activities Feed
+    activities = []
+    
+    # 1. New Enrollments
+    enrollments = Enrollment.objects.select_related('student', 'subject').order_by('-created_at')[:5]
+    for en in enrollments:
+        activities.append({
+            'date': en.created_at,
+            'text': f"{en.student.first_name} {en.student.last_name} a rejoint le module de \"{en.subject.name}\"",
+            'type': 'enroll'
+        })
+        
+    # 2. Exam Results / Validations
+    results = ExamResult.objects.select_related('student', 'exam__subject').order_by('-created_at')[:5]
+    for res in results:
+        activities.append({
+            'date': res.created_at,
+            'text': f"{res.student.first_name} {res.student.last_name} a validé son module de \"{res.exam.subject.name}\"",
+            'type': 'validation'
+        })
+        
+    # 3. New Students Joining (using joining_date as fallback or created_at if added)
+    for st in recent_students:
+        activities.append({
+            'date': st.joining_date,
+            'text': f"{st.first_name} {st.last_name} a rejoint l'école",
+            'type': 'join'
+        })
+
+    # Sort all activities by date (handling mixed Date/DateTime properly with timezone awareness)
+    from datetime import date, datetime
+    from django.utils import timezone
+    activities.sort(key=lambda x: x['date'] if isinstance(x['date'], datetime) else timezone.make_aware(datetime.combine(x['date'], datetime.min.time())), reverse=True)
+    activities = activities[:10]  # Limit to 10 latest activities
+
+    context = {
+        'student_count': student_count,
+        'teacher_count': teacher_count,
+        'department_count': department_count,
+        'subject_count': subject_count,
+        'recent_students': recent_students,
+        'recent_teachers': recent_teachers,
+        'activities': activities,
+    }
+    return render(request, 'Home/index.html', context)
 
 @role_required(['admin', 'teacher', 'student'])
 def index(request):
