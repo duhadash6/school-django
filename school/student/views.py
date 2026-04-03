@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from home_auth.decorators import role_required
 from .models import Student, Parent
+import csv
 
 @role_required(['admin', 'teacher', 'student'])
 def student_list(request):
@@ -139,4 +140,66 @@ def student_edit_generic(request):
 
 @role_required(['student'])
 def student_dashboard(request):
-    return render(request, 'students/student-dashboard.html')
+    from subjects.models import Subject, Enrollment, Exam, ExamResult, Timetable
+    from datetime import date, datetime
+
+    user = request.user
+
+    # Enrolled courses
+    enrolled_ids = Enrollment.objects.filter(student=user).values_list('subject_id', flat=True)
+    enrolled_count = enrolled_ids.count()
+    total_subjects = Subject.objects.count()
+
+    # Exams for enrolled subjects
+    enrolled_exams = Exam.objects.filter(subject_id__in=enrolled_ids)
+    total_exams = enrolled_exams.count()
+
+    # Exam results
+    results = ExamResult.objects.filter(student=user, exam__in=enrolled_exams)
+    exams_attended = results.count()
+    exams_passed = results.filter(marks_obtained__gte=50).count()
+
+    # Today's timetable
+    today_dow = str(datetime.now().weekday() + 1)  # model: 1=Mon ... 5=Fri
+    if datetime.now().weekday() == 6:  # Sunday
+        today_dow = '0'
+    todays_classes = Timetable.objects.filter(
+        subject_id__in=enrolled_ids, day=today_dow
+    ).select_related('subject').order_by('start_time')
+
+    # Upcoming exams (next 5)
+    upcoming_exams = Exam.objects.filter(
+        subject_id__in=enrolled_ids, exam_date__gte=date.today()
+    ).select_related('subject').order_by('exam_date', 'start_time')[:5]
+
+    context = {
+        'enrolled_count': enrolled_count,
+        'total_subjects': total_subjects,
+        'total_exams': total_exams,
+        'exams_attended': exams_attended,
+        'exams_passed': exams_passed,
+        'todays_classes': todays_classes,
+        'upcoming_exams': upcoming_exams,
+    }
+    return render(request, 'students/student-dashboard.html', context)
+
+@role_required(['admin', 'teacher'])
+def export_students_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="students.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Student ID', 'First Name', 'Last Name', 'Class', 'Date of Birth', 'Mobile', 'Admission No', 'Section', 'Father Name', 'Mother Name', 'Address'])
+
+    students = Student.objects.select_related('parent').all()
+    for s in students:
+        writer.writerow([
+            s.student_id, s.first_name, s.last_name,
+            s.student_class, s.date_of_birth, s.mobile_number,
+            s.admission_number, s.section,
+            s.parent.father_name if s.parent else '',
+            s.parent.mother_name if s.parent else '',
+            s.parent.present_address if s.parent else '',
+        ])
+
+    return response

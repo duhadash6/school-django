@@ -14,6 +14,7 @@ urlpatterns = [
     path('exams/grade/<str:exam_id>/', views.grade_exam, name='grade_exam'),
     path('timetable/', views.visual_timetable, name='visual_timetable'),
     path('timetable/add/', views.add_timetable, name='add_timetable'),
+    path('timetable/export/', views.export_timetable_json, name='export_timetable_json'),
     path('my-grades/', views.my_grades, name='my_grades'),
     path('my-exams/', views.my_exams, name='my_exams'),
     path('enroll/', views.enroll_subjects, name='enroll_subjects'),

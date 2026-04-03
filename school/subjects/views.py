@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 import json
 from .models import Subject, Exam, Enrollment, ExamResult, Timetable
 from .forms import SubjectForm
@@ -8,8 +9,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def subject_list(request):
-    if getattr(request.user, 'is_student', False):
-        return render(request, 'Home/error_403.html')
     subjects = Subject.objects.all()
     return render(request, 'subjects/subjects.html', {'subjects': subjects})
 
@@ -233,16 +232,32 @@ def visual_timetable(request):
     timetables = Timetable.objects.select_related('subject')
     events = []
     
+    min_hour = 8
+    max_hour = 18
+    
     for t in timetables:
+        if t.start_time.hour < min_hour:
+            min_hour = t.start_time.hour
+        end_h = t.end_time.hour + (1 if t.end_time.minute > 0 else 0)
+        if end_h > max_hour:
+            max_hour = end_h
+        
         events.append({
             'title': f"{t.subject.name} - Room {t.room_number}",
             'startTime': t.start_time.strftime('%H:%M:%S'),
             'endTime': t.end_time.strftime('%H:%M:%S'),
             'daysOfWeek': [int(t.day)],
         })
-        
+    
+    slot_min = f"{max(min_hour - 1, 0):02d}:00:00"
+    slot_max = f"{min(max_hour + 1, 24):02d}:00:00"
+    
     events_json = json.dumps(events)
-    return render(request, 'subjects/timetable.html', {'events_json': events_json})
+    return render(request, 'subjects/timetable.html', {
+        'events_json': events_json,
+        'slot_min': slot_min,
+        'slot_max': slot_max,
+    })
 
 @login_required
 def add_timetable(request):
@@ -257,3 +272,21 @@ def add_timetable(request):
     else:
         form = TimetableForm()
     return render(request, 'subjects/add_timetable.html', {'form': form})
+
+@login_required
+def export_timetable_json(request):
+    timetables = Timetable.objects.select_related('subject')
+    data = []
+    for t in timetables:
+        data.append({
+            'subject': t.subject.name,
+            'subject_id': t.subject.subject_id,
+            'day': t.get_day_display(),
+            'day_number': int(t.day),
+            'start_time': t.start_time.strftime('%H:%M'),
+            'end_time': t.end_time.strftime('%H:%M'),
+            'room_number': t.room_number,
+        })
+    response = JsonResponse(data, safe=False, json_dumps_params={'indent': 2})
+    response['Content-Disposition'] = 'attachment; filename="timetable.json"'
+    return response

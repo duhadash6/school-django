@@ -31,6 +31,37 @@ def signup_view(request):
             user.is_admin = True
 
         user.save()
+
+        # Auto-create a Student profile when signing up as a student
+        if user.is_student:
+            from student.models import Student, Parent
+            parent, _ = Parent.objects.get_or_create(
+                father_name='N/A',
+                mother_name='N/A',
+                defaults={
+                    'father_mobile': '', 'father_email': '',
+                    'father_occupation': '',
+                    'mother_mobile': '', 'mother_email': '',
+                    'mother_occupation': '',
+                    'present_address': 'N/A',
+                    'permanent_address': 'N/A',
+                }
+            )
+            from datetime import date
+            Student.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                student_id=f"STU-{user.id}",
+                gender='Male',
+                date_of_birth=date(2000, 1, 1),
+                student_class='N/A',
+                joining_date=date.today(),
+                mobile_number='',
+                admission_number=f"ADM-{user.id}",
+                section='N/A',
+                parent=parent,
+            )
+
         login(request, user)
         messages.success(request, 'Signup successful!')
         if user.is_admin:

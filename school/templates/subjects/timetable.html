@@ -12,11 +12,12 @@
                 <div class="col">
                     <h3 class="page-title">Weekly Visual Timetable</h3>
                 </div>
-                {% if not request.user.is_student %}
                 <div class="col-auto text-right float-right ml-auto">
+                    <a href="{% url 'export_timetable_json' %}" class="btn btn-outline-secondary mr-2"><i class="fas fa-download"></i> Export JSON</a>
+                    {% if not request.user.is_student %}
                     <a href="{% url 'add_timetable' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Class</a>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
         </div>
 
@@ -33,17 +34,16 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('timetable');
-        
+
         // Parse the JSON data passed from the Django view
         var eventsData = JSON.parse('{{ events_json|escapejs }}');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'timeGridWeek',
-            slotMinTime: '08:00:00',
-            slotMaxTime: '18:00:00',
-            hiddenDays: [0, 6], // Hide Sunday(0) and Saturday(6)
+            slotMinTime: '{{ slot_min }}',
+            slotMaxTime: '{{ slot_max }}',
             allDaySlot: false,
             events: eventsData,
             headerToolbar: {
@@ -52,13 +52,9 @@
                 right: ''
             }
         });
-        
+
         calendar.render();
     });
 </script>
-      
-      
-      
-      
-      
-{% endblock %}
+
+{% endblock %}

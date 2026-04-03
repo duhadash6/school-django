@@ -10,4 +10,5 @@ urlpatterns = [
     path('view-generic/', views.student_view_generic, name='student_view_generic'),
     path('edit-generic/', views.student_edit_generic, name='student_edit_generic'),
     path('dashboard/', views.student_dashboard, name='student_dashboard'),
+    path('export/', views.export_students_csv, name='export_students_csv'),
 ]

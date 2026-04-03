@@ -13,9 +13,11 @@
                         <li class="breadcrumb-item active">Subjects</li>
                     </ul>
                 </div>
+                {% if not request.user.is_student %}
                 <div class="col-auto text-right float-right ml-auto">
                     <a href="{% url 'add_subject' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Add New</a>
                 </div>
+                {% endif %}
             </div>
         </div>
         <div class="row">
@@ -30,7 +32,9 @@
                                         <th>Name</th>
                                         <th>Department</th>
                                         <th>Teacher</th>
+                                        {% if not request.user.is_student %}
                                         <th class="text-right">Action</th>
+                                        {% endif %}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,6 +46,7 @@
                                         </td>
                                         <td>{{ subject.department.name }}</td>
                                         <td>{{ subject.teacher.first_name }} {{ subject.teacher.last_name }}</td>
+                                        {% if not request.user.is_student %}
                                         <td class="text-right">
                                             <div class="actions">
                                                 <a href="{% url 'edit_subject' subject.subject_id %}" class="btn btn-sm bg-success-light mr-2">
@@ -52,6 +57,7 @@
                                                 </a>
                                             </div>
                                         </td>
+                                        {% endif %}
                                     </tr>
                                     {% empty %}
                                     <tr>
