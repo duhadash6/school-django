@@ -1,7 +1,7 @@
 # School Management System
 
 **Université Abdelmalek Essaadi — Faculté des Sciences et Techniques de Tanger**  
-**Licence IDAI | Développement Web | 2025–2026**
+**Licence IDAI | Développement Web Avancé Back-End Python  | 2025–2026**
 
 ## Description
 Plateforme web développée sous **Django** pour la gestion centralisée, administrative et académique d'un établissement scolaire. Elle intègre un système d'authentification robuste (RBAC) avec des espaces sécurisés et sur-mesure répondant aux besoins quotidiens des **étudiants**, des **professeurs** et de l'**administration**.
